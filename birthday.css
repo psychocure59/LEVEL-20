@@ -1,0 +1,1180 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    background: #050505;
+
+    color: #eeeeee;
+
+    font-family:
+        "Arial",
+        "Helvetica",
+        sans-serif;
+
+    overflow: hidden;
+
+}
+
+
+/* =====================================
+   BOOT SCREEN
+===================================== */
+#bootScreen {
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            #101d38 0%,
+            #07101f 35%,
+            #02050b 75%
+        );
+
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+
+    overflow: hidden;
+}
+
+.boot-noise {
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: .18;
+
+    background:
+
+        linear-gradient(
+            rgba(20, 80, 150, .08) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(20, 80, 150, .08) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        45px 45px;
+
+    animation:
+        gridMove 12s linear infinite;
+}
+
+.boot-container {
+
+    width: min(850px, 88%);
+
+    height: 90vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    padding: 30px 0;
+
+}
+
+
+.boot-top,
+.boot-bottom {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: #555;
+
+}
+
+
+.boot-center {
+
+    width: min(600px, 100%);
+
+    margin: auto;
+
+}
+
+
+.game-logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    margin-bottom: 70px;
+
+}
+
+
+.game-logo h1 {
+
+    font-size: 13px;
+
+    letter-spacing: 10px;
+
+    font-weight: 400;
+
+}
+
+
+.logo-line {
+
+    height: 1px;
+
+    flex: 1;
+
+    background: #333;
+
+}
+
+
+.boot-title {
+
+    font-size: clamp(
+        40px,
+        8vw,
+        90px
+    );
+
+    font-weight: 800;
+
+    letter-spacing: -4px;
+
+}
+
+
+.boot-message {
+
+    margin-top: 20px;
+
+    color: #777;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.progress-box {
+
+    height: 3px;
+
+    width: 100%;
+
+    margin-top: 35px;
+
+    background: #222;
+
+}
+
+
+#progressBar {
+
+    width: 0%;
+
+    height: 100%;
+
+    background: #fff;
+
+    box-shadow:
+        0 0 12px #fff;
+
+}
+
+
+.progress-info {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 10px;
+
+    font-size: 9px;
+
+    color: #555;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* =====================================
+   LEVEL SCREEN
+===================================== */
+
+#levelScreen {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 900;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #050505;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+}
+
+
+#levelScreen.active {
+
+    opacity: 1;
+
+    visibility: visible;
+
+}
+
+.level-background {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(20, 65, 120, .45),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            120deg,
+            #02050b,
+            #071528,
+            #02050b
+        );
+
+}
+
+
+.level-background::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+            rgba(50, 130, 255, .08) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(50, 130, 255, .08) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        60px 60px;
+
+    transform:
+        perspective(500px)
+        rotateX(55deg)
+        scale(2);
+
+    transform-origin:
+        center bottom;
+
+    opacity: .35;
+
+}
+
+.level-content {
+
+    position: relative;
+
+    text-align: center;
+
+}
+
+
+.level-small {
+
+    font-size: 10px;
+
+    letter-spacing: 7px;
+
+    color: #666;
+
+    margin-bottom: 20px;
+
+}
+
+
+.level-number {
+
+    font-size: clamp(
+        180px,
+        30vw,
+        400px
+    );
+
+    font-weight: 900;
+
+    line-height: .75;
+
+    letter-spacing: -20px;
+
+    overflow: hidden;
+
+}
+
+
+.twenty {
+
+    display: block;
+
+    transform:
+        translateY(100%);
+
+}
+
+
+#levelScreen.active .twenty {
+
+    animation:
+        numberReveal 1.4s
+        cubic-bezier(.16,1,.3,1)
+        forwards;
+
+}
+
+
+.level-unlocked {
+
+    margin-top: 35px;
+
+    font-size: 12px;
+
+    letter-spacing: 6px;
+
+    color: #777;
+
+}
+
+
+.level-unlocked strong {
+
+    color: #fff;
+
+}
+
+
+.level-line {
+
+    width: 0;
+
+    height: 1px;
+
+    margin: 30px auto;
+
+    background: #fff;
+
+}
+
+
+#levelScreen.active .level-line {
+
+    animation:
+        lineReveal 1s
+        1s forwards;
+
+}
+
+
+.level-content p {
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    line-height: 2;
+
+    color: #666;
+
+}
+
+
+@keyframes numberReveal {
+
+    to {
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+@keyframes lineReveal {
+
+    to {
+
+        width: 180px;
+
+    }
+
+}
+
+
+/* =====================================
+   PLAYER PAGE
+===================================== */
+
+#playerPage {
+
+    background:
+
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(30, 90, 180, .20),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 85% 70%,
+            rgba(80, 40, 180, .15),
+            transparent 30%
+        ),
+
+        #03060c;
+
+    opacity: 0;
+
+    transition:
+        opacity 1s ease;
+
+    position: relative;
+}
+
+
+#playerPage.active {
+
+    opacity: 1;
+
+}
+
+
+.scanlines {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 20;
+
+    opacity: .025;
+
+    background:
+
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 3px,
+            #fff 4px
+        );
+
+}
+
+
+/* =====================================
+   HEADER
+===================================== */
+
+.player-header {
+
+    min-height: 110px;
+
+    padding: 25px 6vw;
+
+    border-bottom: 1px solid #222;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+
+.header-label {
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+    color: #666;
+
+}
+
+
+.player-header h2 {
+
+    margin-top: 8px;
+
+    font-size: 15px;
+
+    letter-spacing: 3px;
+
+    font-weight: 400;
+
+}
+
+
+.player-level {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+
+.player-level span {
+
+    font-size: 8px;
+
+    color: #666;
+
+}
+
+
+.player-level strong {
+
+    font-size: 35px;
+
+    line-height: 1;
+
+}
+
+
+/* =====================================
+   PROFILE
+===================================== */
+
+.profile {
+
+    min-height: 650px;
+
+    padding: 80px 8vw;
+
+    display: grid;
+
+    grid-template-columns:
+        40% 1fr;
+
+    gap: 80px;
+
+    align-items: center;
+
+}
+
+
+.profile-photo {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+}
+
+.photo-frame img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    filter: none;
+    opacity: 1;
+
+    transition: transform 0.6s ease;
+}
+
+.photo-frame:hover img {
+    transform: scale(1.04);
+
+    /* No color change */
+    filter: none;
+}
+
+
+.photo-status {
+
+    margin-top: 15px;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    color: #555;
+
+}
+
+
+.photo-status span {
+
+    display: inline-block;
+
+    width: 5px;
+
+    height: 5px;
+
+    margin-right: 8px;
+
+    border-radius: 50%;
+
+    background: #fff;
+
+    box-shadow:
+        0 0 10px #fff;
+
+}
+
+
+/* =====================================
+   PLAYER DATA
+===================================== */
+
+.player-name span {
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+    color: #555;
+
+}
+
+
+.player-name h1 {
+
+    margin-top: 10px;
+
+    font-size: clamp(
+        45px,
+        7vw,
+        90px
+    );
+
+    letter-spacing: -4px;
+
+    font-weight: 800;
+
+}
+
+
+.data-grid {
+
+    margin-top: 55px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    border-top: 1px solid #252525;
+
+}
+
+
+.data-box {
+
+    padding: 22px 0;
+
+    border-bottom: 1px solid #252525;
+
+}
+
+
+.data-box:nth-child(odd) {
+
+    margin-right: 30px;
+
+}
+
+
+.data-box span {
+
+    display: block;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    color: #555;
+
+    margin-bottom: 8px;
+
+}
+
+
+.data-box strong {
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+}
+
+
+/* XP */
+
+.xp-section {
+
+    margin-top: 35px;
+
+}
+
+
+.xp-top,
+.xp-bottom {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    color: #555;
+
+}
+
+
+.xp-bar {
+
+    width: 100%;
+
+    height: 4px;
+
+    margin: 12px 0;
+
+    background: #222;
+
+}
+
+
+.xp-bar div {
+
+    width: 0;
+
+    height: 100%;
+
+    background: #fff;
+
+    transition:
+        width 1.5s ease;
+
+}
+
+
+#playerPage.active .xp-bar div {
+
+    width: 72%;
+
+}
+
+
+/* =====================================
+   INTERESTS
+===================================== */
+
+.interests {
+
+    padding: 120px 8vw;
+
+    border-top: 1px solid #222;
+
+}
+
+
+.section-heading {
+
+    margin-bottom: 60px;
+
+}
+
+
+.section-heading > span {
+
+    font-size: 9px;
+
+    color: #555;
+
+    letter-spacing: 3px;
+
+}
+
+
+.section-heading h2 {
+
+    margin-top: 12px;
+
+    font-size: 42px;
+
+    font-weight: 500;
+
+    letter-spacing: -2px;
+
+}
+
+
+.section-heading p {
+
+    margin-top: 10px;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: #555;
+
+}
+
+
+.interest-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 2px;
+
+    background: #252525;
+
+}
+
+
+.interest-card {
+
+    min-height: 300px;
+
+    padding: 35px;
+
+    background: #090909;
+
+    position: relative;
+
+    transition:
+        background .3s ease;
+
+}
+
+
+.interest-card:hover {
+
+    background: #111;
+
+}
+
+
+.card-number {
+
+    position: absolute;
+
+    top: 30px;
+
+    right: 30px;
+
+    font-size: 9px;
+
+    color: #444;
+
+}
+
+
+.card-icon {
+
+    font-size: 25px;
+
+    color: #777;
+
+}
+
+
+.interest-card h3 {
+
+    margin-top: 50px;
+
+    font-size: 25px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.interest-card p {
+
+    max-width: 350px;
+
+    margin-top: 15px;
+
+    color: #666;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+}
+
+
+.skill-bar {
+
+    height: 2px;
+
+    margin-top: 35px;
+
+    background: #222;
+
+}
+
+
+.skill-bar div {
+
+    height: 100%;
+
+    background: #aaa;
+
+}
+
+
+.skill-level {
+
+    display: block;
+
+    margin-top: 8px;
+
+    font-size: 8px;
+
+    color: #555;
+
+    text-align: right;
+
+}
+
+
+/* =====================================
+   CONTINUE
+===================================== */
+
+.continue-section {
+
+    min-height: 400px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 25px;
+
+    border-top: 1px solid #222;
+
+}
+
+
+.continue-section p {
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+    color: #555;
+
+}
+
+
+#continueBtn {
+
+    padding: 18px 35px;
+
+    background: transparent;
+
+    color: #fff;
+
+    border: 1px solid #444;
+
+    cursor: pointer;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    transition:
+        background .3s ease,
+        border .3s ease;
+
+}
+
+
+#continueBtn span {
+
+    margin-left: 20px;
+
+}
+
+
+#continueBtn:hover {
+
+    background: #fff;
+
+    border-color: #fff;
+
+    color: #000;
+
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 700px) {
+
+    .boot-container {
+
+        width: 85%;
+
+    }
+
+
+    .profile {
+
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+
+        padding: 60px 7vw;
+
+    }
+
+
+    .profile-photo {
+
+        width: 100%;
+
+    }
+
+
+    .photo-frame {
+
+        width: 75vw;
+
+        max-width: 350px;
+
+    }
+
+
+    .player-name h1 {
+
+        font-size: 55px;
+
+    }
+
+
+    .interest-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .interests {
+
+        padding:
+            80px 7vw;
+
+    }
+
+
+    .section-heading h2 {
+
+        font-size: 32px;
+
+    }
+
+
+    .data-box:nth-child(odd) {
+
+        margin-right: 15px;
+
+    }
+
+}
+
+@keyframes gridMove {
+
+    from {
+        background-position:
+            0 0;
+    }
+
+    to {
+        background-position:
+            45px 45px;
+    }
+
+}

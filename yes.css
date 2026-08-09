@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+
+    background: #000;
+
+    color: #00ff66;
+
+    font-family: "Courier New", monospace;
+}
+
+.screen {
+    width: 100%;
+    height: 100%;
+
+    padding: 30px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #062b16 0%,
+            #000 65%
+        );
+}
+
+.header {
+    font-size: 24px;
+
+    margin-bottom: 25px;
+
+    text-shadow:
+        0 0 10px #00ff66;
+}
+
+.terminal {
+    height: 65vh;
+
+    border: 1px solid #00ff66;
+
+    padding: 20px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 0 20px rgba(0, 255, 102, 0.3);
+
+    background:
+        rgba(0, 20, 10, 0.7);
+}
+
+.line {
+    margin: 7px 0;
+
+    font-size: 15px;
+}
+
+.success {
+    color: #00ff66;
+}
+
+.warning {
+    color: #ffff00;
+}
+
+.danger {
+    color: #ff3333;
+}
+
+.progress-container {
+    margin-top: 25px;
+
+    width: 100%;
+    height: 25px;
+
+    border: 1px solid #00ff66;
+}
+
+.progress {
+    width: 0%;
+    height: 100%;
+
+    background: #00ff66;
+
+    box-shadow:
+        0 0 15px #00ff66;
+
+    transition: width 0.2s;
+}
+
+.percent {
+    margin-top: 10px;
+
+    font-size: 18px;
+}

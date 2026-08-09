@@ -1,0 +1,1141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(20, 80, 170, 0.22),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 70%,
+            rgba(70, 40, 180, 0.18),
+            transparent 32%
+        ),
+        #03060c;
+
+    color: #e9edf5;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+/* =====================================
+   BACKGROUND GRID
+===================================== */
+
+.background-grid {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -2;
+
+    background-image:
+
+        linear-gradient(
+            rgba(60, 130, 220, 0.055) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(60, 130, 220, 0.055) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        50px 50px;
+
+    animation:
+        gridMove 18s linear infinite;
+}
+
+
+@keyframes gridMove {
+
+    from {
+        background-position:
+            0 0;
+    }
+
+    to {
+        background-position:
+            50px 50px;
+    }
+}
+
+
+/* =====================================
+   SCANLINES
+===================================== */
+
+.scanlines {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 50;
+
+    pointer-events: none;
+
+    opacity: 0.035;
+
+    background:
+
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 3px,
+            #ffffff 4px
+        );
+}
+
+
+/* =====================================
+   HUD
+===================================== */
+
+.hud {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+    height: 75px;
+
+    padding:
+        0 5vw;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-bottom:
+        1px solid rgba(120, 170, 230, 0.12);
+
+    background:
+        rgba(3, 6, 12, 0.75);
+
+    backdrop-filter:
+        blur(14px);
+}
+
+
+.hud-left,
+.hud-right {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: #687386;
+}
+
+
+.hud-center {
+
+    font-size: 9px;
+
+    letter-spacing: 5px;
+
+    color: #9ba9bd;
+}
+
+
+.system-dot {
+
+    width: 6px;
+
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #65a8ff;
+
+    box-shadow:
+        0 0 12px #368cff;
+
+    animation:
+        pulse 1.5s infinite;
+}
+
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}
+
+
+/* =====================================
+   INTRO
+===================================== */
+
+.intro {
+
+    min-height: 650px;
+
+    padding:
+        130px 9vw 100px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    position: relative;
+}
+
+
+.section-code {
+
+    font-size: 8px;
+
+    letter-spacing: 5px;
+
+    color: #56657a;
+
+    margin-bottom: 25px;
+}
+
+
+.intro h1 {
+
+    font-size:
+        clamp(60px, 12vw, 170px);
+
+    line-height: 0.82;
+
+    letter-spacing: -8px;
+
+    font-weight: 900;
+}
+
+
+.intro h1 span {
+
+    color: transparent;
+
+    -webkit-text-stroke:
+        1px #708096;
+}
+
+
+.intro p {
+
+    max-width: 400px;
+
+    margin-top: 45px;
+
+    color: #677386;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+    letter-spacing: 1px;
+}
+
+
+.intro-line {
+
+    width: 150px;
+
+    height: 1px;
+
+    margin-top: 35px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #5b9be6,
+            transparent
+        );
+}
+
+
+/* =====================================
+   SECTION
+===================================== */
+
+.interest-section {
+
+    padding:
+        100px 9vw;
+
+    border-top:
+        1px solid rgba(100, 150, 210, 0.12);
+}
+
+
+.section-header {
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    margin-bottom: 45px;
+}
+
+
+.section-header > div {
+
+    display: flex;
+
+    align-items: baseline;
+
+    gap: 20px;
+}
+
+
+.number {
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: #4e6077;
+}
+
+
+.section-header h2 {
+
+    font-size:
+        clamp(30px, 5vw, 60px);
+
+    font-weight: 500;
+
+    letter-spacing: -2px;
+}
+
+
+.status {
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    color: #53647a;
+}
+
+
+/* =====================================
+   ANIME LAYOUT
+===================================== */
+
+.anime-layout {
+
+    display: grid;
+
+    grid-template-columns:
+        1.4fr 0.8fr;
+
+    gap: 2px;
+
+    background:
+        rgba(100, 150, 220, 0.12);
+}
+
+
+.main-card,
+.reason-card {
+
+    min-height: 450px;
+
+    padding: 40px;
+
+    background:
+        rgba(5, 10, 18, 0.92);
+
+    position: relative;
+
+    transition:
+        background 0.4s ease;
+}
+
+
+.main-card:hover,
+.reason-card:hover {
+
+    background:
+        rgba(10, 20, 34, 0.95);
+}
+
+
+.card-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    color: #53647a;
+
+    padding-bottom: 25px;
+
+    border-bottom:
+        1px solid #1a2635;
+}
+
+
+/* =====================================
+   ANIME LIST
+===================================== */
+
+.anime-list {
+
+    margin-top: 35px;
+}
+
+
+.anime-item {
+
+    min-height: 80px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    border-bottom:
+        1px solid #121c29;
+
+    transition:
+        padding-left 0.35s ease;
+}
+
+
+.anime-item:hover {
+
+    padding-left: 15px;
+}
+
+
+.anime-item span {
+
+    font-size: 9px;
+
+    color: #45556b;
+}
+
+
+.anime-item strong {
+
+    font-size:
+        clamp(18px, 3vw, 30px);
+
+    font-weight: 500;
+
+    letter-spacing: 1px;
+}
+
+
+.card-footer {
+
+    position: absolute;
+
+    bottom: 35px;
+
+    left: 40px;
+
+    right: 40px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding-top: 20px;
+
+    border-top:
+        1px solid #1a2635;
+}
+
+
+.card-footer span {
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    color: #53647a;
+}
+
+
+.card-footer strong {
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color: #9eafc4;
+}
+
+
+/* =====================================
+   REASON CARD
+===================================== */
+
+.reason-card {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+
+.reason-label {
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+    color: #557292;
+}
+
+
+.reason-card h3 {
+
+    max-width: 450px;
+
+    margin-top: 30px;
+
+    font-size:
+        clamp(28px, 4vw, 50px);
+
+    line-height: 1.1;
+
+    font-weight: 400;
+
+    letter-spacing: -2px;
+}
+
+
+.reason-card p {
+
+    max-width: 400px;
+
+    margin-top: 25px;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+    color: #647286;
+}
+
+
+.quote-line {
+
+    width: 60px;
+
+    height: 1px;
+
+    margin-top: 35px;
+
+    background: #5b9be6;
+}
+
+
+.player-note {
+
+    margin-top: 12px;
+
+    font-size: 7px;
+
+    letter-spacing: 3px;
+
+    color: #46566b;
+}
+
+
+/* =====================================
+   WEB SERIES
+===================================== */
+
+.series-layout {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr 1fr;
+
+    gap: 2px;
+
+    background:
+        rgba(100, 150, 220, 0.12);
+}
+
+
+.series-card,
+.gore-card,
+.series-reason {
+
+    min-height: 390px;
+
+    padding: 35px;
+
+    background:
+        rgba(5, 10, 18, 0.92);
+}
+
+
+/* SERIES LIST */
+
+.series-list {
+
+    margin-top: 25px;
+}
+
+
+.series-list > div {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding:
+        22px 0;
+
+    border-bottom:
+        1px solid #141f2d;
+}
+
+
+.series-list span {
+
+    font-size: 8px;
+
+    color: #45556b;
+}
+
+
+.series-list strong {
+
+    font-size: 16px;
+
+    font-weight: 500;
+
+    letter-spacing: 1px;
+}
+
+
+/* =====================================
+   GORE
+===================================== */
+
+.gore-card {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20, 10, 15, 0.95),
+            rgba(5, 10, 18, 0.95)
+        );
+}
+
+
+.gore-warning span {
+
+    display: block;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    color: #596476;
+}
+
+
+.gore-warning strong {
+
+    display: block;
+
+    margin-top: 15px;
+
+    font-size: 42px;
+
+    letter-spacing: 5px;
+
+    font-weight: 600;
+
+    color: #b9c1cc;
+}
+
+
+.gore-card p {
+
+    margin-top: 30px;
+
+    color: #697486;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+}
+
+
+.gore-meter {
+
+    margin-top: 45px;
+}
+
+
+.gore-meter > span {
+
+    display: block;
+
+    font-size: 7px;
+
+    letter-spacing: 3px;
+
+    color: #536176;
+
+    margin-bottom: 12px;
+}
+
+
+.meter {
+
+    display: flex;
+
+    gap: 4px;
+}
+
+
+.meter i {
+
+    width: 18px;
+
+    height: 4px;
+
+    background: #344052;
+
+}
+
+
+.meter i:nth-child(-n+6) {
+
+    background: #8290a3;
+
+}
+
+
+/* =====================================
+   SERIES REASON
+===================================== */
+
+.series-reason {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+
+.series-reason > span {
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    color: #53647a;
+}
+
+
+.series-reason h3 {
+
+    margin-top: 25px;
+
+    font-size: 28px;
+
+    line-height: 1.35;
+
+    font-weight: 400;
+}
+
+
+.series-reason p {
+
+    margin-top: 25px;
+
+    font-size: 11px;
+
+    line-height: 1.8;
+
+    color: #687487;
+}
+
+
+/* =====================================
+   PLAYER QUOTE
+===================================== */
+
+.player-quote {
+
+    min-height: 600px;
+
+    padding:
+        120px 9vw;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    border-top:
+        1px solid rgba(100, 150, 210, 0.12);
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(30, 70, 130, 0.15),
+            transparent 50%
+        );
+}
+
+
+.player-quote > span {
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+    color: #52657d;
+}
+
+
+.player-quote h2 {
+
+    max-width: 800px;
+
+    margin-top: 30px;
+
+    font-size:
+        clamp(45px, 8vw, 100px);
+
+    line-height: 0.95;
+
+    letter-spacing: -5px;
+
+    font-weight: 500;
+}
+
+
+.player-quote p {
+
+    margin-top: 40px;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    color: #627188;
+}
+
+
+/* =====================================
+   NEXT
+===================================== */
+
+.next-section {
+
+    min-height: 350px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 25px;
+
+    border-top:
+        1px solid rgba(100, 150, 210, 0.12);
+}
+
+
+.next-section > span {
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+    color: #4f6075;
+}
+
+
+#nextBtn {
+
+    padding:
+        18px 35px;
+
+    border:
+        1px solid #34475f;
+
+    background:
+        transparent;
+
+    color: #dce5f0;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    cursor: pointer;
+
+    transition:
+        all 0.3s ease;
+}
+
+
+#nextBtn span {
+
+    margin-left: 20px;
+}
+
+
+#nextBtn:hover {
+
+    background:
+        #dce5f0;
+
+    color:
+        #03060c;
+
+    border-color:
+        #dce5f0;
+
+    box-shadow:
+        0 0 30px rgba(120, 170, 230, 0.2);
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 800px) {
+
+
+    .hud {
+
+        height: 65px;
+
+        padding:
+            0 20px;
+    }
+
+
+    .hud-center {
+
+        display: none;
+    }
+
+
+    .intro {
+
+        min-height: 550px;
+
+        padding:
+            100px 25px 80px;
+    }
+
+
+    .intro h1 {
+
+        font-size:
+            clamp(55px, 17vw, 100px);
+
+        letter-spacing:
+            -5px;
+    }
+
+
+    .interest-section {
+
+        padding:
+            75px 20px;
+    }
+
+
+    .section-header {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+
+    .section-header h2 {
+
+        font-size: 40px;
+    }
+
+
+    .anime-layout {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .main-card,
+    .reason-card {
+
+        min-height: 400px;
+
+        padding: 28px;
+    }
+
+
+    .card-footer {
+
+        left: 28px;
+
+        right: 28px;
+
+        bottom: 28px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 8px;
+    }
+
+
+    .series-layout {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .series-card,
+    .gore-card,
+    .series-reason {
+
+        min-height: 330px;
+
+        padding: 28px;
+    }
+
+
+    .player-quote {
+
+        min-height: 500px;
+
+        padding:
+            90px 25px;
+    }
+
+
+    .player-quote h2 {
+
+        font-size:
+            clamp(45px, 13vw, 80px);
+
+        letter-spacing:
+            -3px;
+    }
+
+}
+
+
+@media (max-width: 450px) {
+
+
+    .hud-left {
+
+        font-size: 7px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .hud-right {
+
+        font-size: 7px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .intro p {
+
+        font-size: 11px;
+    }
+
+
+    .anime-item strong {
+
+        font-size: 18px;
+    }
+
+
+    .gore-warning strong {
+
+        font-size: 35px;
+    }
+
+}

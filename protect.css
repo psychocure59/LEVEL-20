@@ -1,0 +1,176 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+
+    background: #050505;
+
+    color: white;
+
+    font-family: Arial, sans-serif;
+}
+
+.warning-screen {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #350000 0%,
+            #080000 50%,
+            #000 100%
+        );
+}
+
+.warning-box {
+    width: 500px;
+    max-width: 100%;
+
+    padding: 40px;
+
+    text-align: center;
+
+    background: rgba(20, 0, 0, 0.85);
+
+    border: 1px solid #ff2222;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 0 30px rgba(255, 0, 0, 0.4);
+
+    animation: warningPulse 1.5s infinite alternate;
+}
+
+.warning-icon {
+    font-size: 70px;
+
+    color: #ff2222;
+
+    text-shadow:
+        0 0 20px #ff0000;
+
+    margin-bottom: 15px;
+
+    animation: blink 0.8s infinite;
+}
+
+h1 {
+    font-size: 30px;
+
+    color: #ff3333;
+
+    text-shadow:
+        0 0 10px #ff0000;
+
+    margin-bottom: 20px;
+}
+
+.main-text {
+    font-size: 20px;
+
+    margin-bottom: 10px;
+}
+
+.sub-text {
+    color: #aaa;
+
+    line-height: 1.6;
+
+    margin-bottom: 25px;
+}
+
+.status {
+    text-align: left;
+
+    padding: 15px;
+
+    margin-bottom: 25px;
+
+    background: rgba(255, 0, 0, 0.08);
+
+    border: 1px solid rgba(255, 0, 0, 0.3);
+
+    border-radius: 8px;
+
+    line-height: 2;
+}
+
+.status span {
+    float: right;
+
+    color: #ff3333;
+
+    font-weight: bold;
+}
+
+#protectBtn {
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #ff2222;
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 15px rgba(255, 0, 0, 0.5);
+
+    transition: 0.2s;
+}
+
+#protectBtn:hover {
+    background: #ff4444;
+
+    transform: scale(1.03);
+
+    box-shadow:
+        0 0 25px rgba(255, 0, 0, 0.8);
+}
+
+@keyframes warningPulse {
+
+    from {
+        box-shadow:
+            0 0 20px rgba(255, 0, 0, 0.3);
+    }
+
+    to {
+        box-shadow:
+            0 0 40px rgba(255, 0, 0, 0.7);
+    }
+
+}
+
+@keyframes blink {
+
+    50% {
+        opacity: 0.4;
+    }
+
+}
