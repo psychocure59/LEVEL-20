@@ -1,3 +1,7 @@
+/* ==========================================
+   BASIC RESET
+========================================== */
+
 * {
     margin: 0;
     padding: 0;
@@ -17,7 +21,401 @@ body {
 }
 
 
-/* BACKGROUND */
+/* ==========================================
+   COUNTDOWN SCREEN
+========================================== */
+
+#collectionScreen {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 10000;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    overflow-y: auto;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(0, 255, 100, 0.08),
+            transparent 55%
+        ),
+        #020504;
+
+    color: #00ff66;
+
+    font-family: "Courier New", monospace;
+
+    opacity: 1;
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+
+/* ==========================================
+   COUNTDOWN BOX
+========================================== */
+
+.collection-box {
+
+    width: min(850px, 95vw);
+
+    padding: 28px;
+
+    background:
+        rgba(0, 8, 4, 0.95);
+
+    border:
+        1px solid
+        rgba(0, 255, 100, 0.35);
+
+    box-shadow:
+        0 0 40px
+        rgba(0, 255, 100, 0.12),
+
+        inset 0 0 40px
+        rgba(0, 255, 100, 0.03);
+}
+
+
+/* ==========================================
+   TOP
+========================================== */
+
+.collection-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding-bottom: 15px;
+
+    border-bottom:
+        1px solid
+        rgba(0, 255, 100, 0.2);
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color:
+        rgba(0, 255, 100, 0.6);
+}
+
+
+/* ==========================================
+   TITLE
+========================================== */
+
+.collection-title {
+
+    text-align: center;
+
+    margin: 35px 0;
+}
+
+.big-symbol {
+
+    display: inline-flex;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 50px;
+    height: 50px;
+
+    border:
+        1px solid
+        #00ff66;
+
+    font-size: 25px;
+
+    box-shadow:
+        0 0 20px
+        rgba(0, 255, 100, 0.4);
+}
+
+.collection-title h1 {
+
+    margin-top: 15px;
+
+    font-size:
+        clamp(25px, 5vw, 45px);
+
+    letter-spacing: 5px;
+
+    color: #00ff66;
+
+    text-shadow:
+        0 0 10px
+        #00ff66;
+}
+
+.collection-title p {
+
+    margin-top: 10px;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color:
+        rgba(0, 255, 100, 0.5);
+}
+
+
+/* ==========================================
+   DATA
+========================================== */
+
+.data-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 8px;
+}
+
+.data-item {
+
+    padding: 14px;
+
+    border:
+        1px solid
+        rgba(0, 255, 100, 0.15);
+
+    background:
+        rgba(0, 255, 100, 0.025);
+}
+
+.data-item label {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    color:
+        rgba(0, 255, 100, 0.4);
+}
+
+.data-item span {
+
+    font-size: 11px;
+
+    color: #baffce;
+}
+
+.data-item .green {
+
+    color: #00ff66;
+
+    text-shadow:
+        0 0 8px
+        rgba(0, 255, 100, 0.6);
+}
+
+
+/* ==========================================
+   PROGRESS
+========================================== */
+
+.collection-status {
+
+    margin-top: 25px;
+}
+
+.status-line {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 8px;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+}
+
+.progress-bar {
+
+    width: 100%;
+
+    height: 5px;
+
+    background:
+        rgba(0, 255, 100, 0.08);
+}
+
+#progress {
+
+    width: 0%;
+
+    height: 100%;
+
+    background: #00ff66;
+
+    box-shadow:
+        0 0 12px
+        rgba(0, 255, 100, 0.8);
+
+    transition:
+        width 0.4s ease;
+}
+
+
+/* ==========================================
+   COUNTDOWN
+========================================== */
+
+.estimated {
+
+    margin-top: 30px;
+
+    padding: 25px;
+
+    text-align: center;
+
+    border:
+        1px solid
+        rgba(0, 255, 100, 0.18);
+
+    background:
+        rgba(0, 255, 100, 0.02);
+}
+
+.estimated-title {
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+    color:
+        rgba(0, 255, 100, 0.4);
+}
+
+.countdown {
+
+    margin-top: 12px;
+
+    font-size:
+        clamp(25px, 7vw, 55px);
+
+    font-weight: bold;
+
+    letter-spacing: 4px;
+
+    color: #baffce;
+
+    text-shadow:
+        0 0 15px
+        rgba(0, 255, 100, 0.5);
+}
+
+.countdown-label {
+
+    margin-top: 8px;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+
+    color:
+        rgba(0, 255, 100, 0.35);
+}
+
+
+/* ==========================================
+   LOGS
+========================================== */
+
+.logs {
+
+    margin-top: 20px;
+
+    height: 60px;
+
+    overflow: hidden;
+
+    font-size: 8px;
+
+    line-height: 1.8;
+
+    color:
+        rgba(0, 255, 100, 0.4);
+}
+
+.logs p {
+    margin: 0;
+}
+
+
+/* ==========================================
+   COUNTDOWN FOOTER
+========================================== */
+
+.collection-footer {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 15px;
+
+    padding-top: 12px;
+
+    border-top:
+        1px solid
+        rgba(0, 255, 100, 0.15);
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+
+    color:
+        rgba(0, 255, 100, 0.35);
+}
+
+
+/* ==========================================
+   ORIGINAL PRANK SCREEN
+========================================== */
+
+#prankScreen {
+
+    display: none;
+
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* ==========================================
+   ORIGINAL BACKGROUND
+========================================== */
 
 .bg1 {
 
@@ -39,14 +437,16 @@ body {
         url("https://as1.ftcdn.net/v2/jpg/08/08/66/84/1000_F_808668460_RyOA2lebRHjwLPIXC0uwqN5Vueokbs5Q.jpg");
 
     background-size: cover;
+
     background-position: center;
 
     color: #00ff66;
-
 }
 
 
-/* GRID */
+/* ==========================================
+   GRID
+========================================== */
 
 .bg1::before {
 
@@ -70,11 +470,12 @@ body {
     background-size: 35px 35px;
 
     pointer-events: none;
-
 }
 
 
-/* MAIN TERMINAL */
+/* ==========================================
+   MAIN TERMINAL
+========================================== */
 
 .content {
 
@@ -86,22 +487,29 @@ body {
 
     background: rgba(0, 8, 4, 0.88);
 
-    border: 1px solid rgba(0, 255, 100, 0.35);
+    border:
+        1px solid
+        rgba(0, 255, 100, 0.35);
 
     border-radius: 6px;
 
     box-shadow:
-        0 0 40px rgba(0, 255, 100, 0.12),
-        inset 0 0 40px rgba(0, 255, 100, 0.03);
+        0 0 40px
+        rgba(0, 255, 100, 0.12),
+
+        inset 0 0 40px
+        rgba(0, 255, 100, 0.03);
 
     backdrop-filter: blur(12px);
 
-    animation: terminalOpen 0.8s ease;
-
+    animation:
+        terminalOpen 0.8s ease;
 }
 
 
-/* TOP BAR */
+/* ==========================================
+   TOP BAR
+========================================== */
 
 .terminal-top {
 
@@ -111,31 +519,34 @@ body {
 
     padding-bottom: 12px;
 
-    border-bottom: 1px solid rgba(0, 255, 100, 0.2);
+    border-bottom:
+        1px solid
+        rgba(0, 255, 100, 0.2);
 
     font-size: 9px;
 
     letter-spacing: 1.5px;
 
-    color: rgba(0, 255, 100, 0.55);
-
+    color:
+        rgba(0, 255, 100, 0.55);
 }
 
 .terminal-top span:first-child {
 
     color: #00ff66;
-
 }
 
 
-/* TITLE */
+/* ==========================================
+   TITLE
+========================================== */
 
 #own {
 
-    padding: 30px 10px 20px;
+    padding:
+        30px 10px 20px;
 
     text-align: center;
-
 }
 
 .terminal-symbol {
@@ -143,26 +554,27 @@ body {
     display: inline-flex;
 
     align-items: center;
-
     justify-content: center;
 
     width: 50px;
-
     height: 50px;
 
     margin-bottom: 12px;
 
-    border: 1px solid #00ff66;
+    border:
+        1px solid
+        #00ff66;
 
     color: #00ff66;
 
     font-size: 25px;
 
     box-shadow:
-        0 0 15px rgba(0, 255, 100, 0.35);
+        0 0 15px
+        rgba(0, 255, 100, 0.35);
 
-    animation: pulse 2s infinite;
-
+    animation:
+        pulse 2s infinite;
 }
 
 #own h1 {
@@ -175,8 +587,8 @@ body {
 
     text-shadow:
         0 0 8px #00ff66,
-        0 0 25px rgba(0, 255, 100, 0.4);
-
+        0 0 25px
+        rgba(0, 255, 100, 0.4);
 }
 
 #own p {
@@ -187,37 +599,42 @@ body {
 
     letter-spacing: 3px;
 
-    color: rgba(0, 255, 100, 0.5);
-
+    color:
+        rgba(0, 255, 100, 0.5);
 }
 
 
-/* INFO */
+/* ==========================================
+   INFO
+========================================== */
 
 .terminal-info {
 
     display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns:
+        repeat(3, 1fr);
 
     gap: 8px;
 
     margin-bottom: 20px;
-
 }
 
 .terminal-info div {
 
     padding: 10px;
 
-    border: 1px solid rgba(0, 255, 100, 0.15);
+    border:
+        1px solid
+        rgba(0, 255, 100, 0.15);
 
-    background: rgba(0, 255, 100, 0.025);
+    background:
+        rgba(0, 255, 100, 0.025);
 
     font-size: 8px;
 
-    color: rgba(255, 255, 255, 0.4);
-
+    color:
+        rgba(255, 255, 255, 0.4);
 }
 
 .terminal-info span {
@@ -229,17 +646,18 @@ body {
     color: #00ff66;
 
     font-size: 10px;
-
 }
 
 .terminal-info .active {
 
-    animation: blink 1s infinite;
-
+    animation:
+        blink 1s infinite;
 }
 
 
-/* QUESTION */
+/* ==========================================
+   QUESTION
+========================================== */
 
 .yes {
 
@@ -247,12 +665,14 @@ body {
 
     padding: 25px;
 
-    border: 1px solid rgba(0, 255, 100, 0.25);
+    border:
+        1px solid
+        rgba(0, 255, 100, 0.25);
 
-    background: rgba(0, 15, 7, 0.7);
+    background:
+        rgba(0, 15, 7, 0.7);
 
     text-align: center;
-
 }
 
 .question-line {
@@ -262,7 +682,6 @@ body {
     color: white;
 
     letter-spacing: 1px;
-
 }
 
 .prompt {
@@ -270,7 +689,6 @@ body {
     color: #00ff66;
 
     margin-right: 8px;
-
 }
 
 .cursor {
@@ -287,12 +705,14 @@ body {
 
     background: #00ff66;
 
-    animation: blink 0.7s infinite;
-
+    animation:
+        blink 0.7s infinite;
 }
 
 
-/* BUTTONS */
+/* ==========================================
+   BUTTONS
+========================================== */
 
 .buttons {
 
@@ -303,7 +723,6 @@ body {
     gap: 15px;
 
     margin-top: 25px;
-
 }
 
 #yesBtn,
@@ -313,7 +732,8 @@ body {
 
     background: transparent;
 
-    font-family: "Courier New", monospace;
+    font-family:
+        "Courier New", monospace;
 
     font-size: 14px;
 
@@ -326,15 +746,15 @@ body {
     cursor: pointer;
 
     transition: 0.2s ease;
-
 }
 
 #yesBtn {
 
     color: #00ff66;
 
-    border: 1px solid #00ff66;
-
+    border:
+        1px solid
+        #00ff66;
 }
 
 #yesBtn:hover {
@@ -344,25 +764,28 @@ body {
     color: #001a08;
 
     box-shadow:
-        0 0 25px rgba(0, 255, 100, 0.7);
+        0 0 25px
+        rgba(0, 255, 100, 0.7);
 
     transform: scale(1.05);
-
 }
 
 
-/* NO */
+/* ==========================================
+   NO BUTTON
+========================================== */
 
 #noBtn {
 
     color: #ff3030;
 
-    border: 1px solid #ff3030;
+    border:
+        1px solid
+        #ff3030;
 
     position: fixed;
 
     z-index: 9999;
-
 }
 
 #noBtn:hover {
@@ -372,12 +795,14 @@ body {
     color: black;
 
     box-shadow:
-        0 0 20px rgba(255, 0, 0, 0.7);
-
+        0 0 20px
+        rgba(255, 0, 0, 0.7);
 }
 
 
-/* FOOTER */
+/* ==========================================
+   FOOTER
+========================================== */
 
 .terminal-footer {
 
@@ -389,27 +814,33 @@ body {
 
     padding-top: 12px;
 
-    border-top: 1px solid rgba(0, 255, 100, 0.15);
+    border-top:
+        1px solid
+        rgba(0, 255, 100, 0.15);
 
     font-size: 8px;
 
-    color: rgba(0, 255, 100, 0.4);
-
+    color:
+        rgba(0, 255, 100, 0.4);
 }
 
 
-/* NO DISAPPEAR */
+/* ==========================================
+   NO DISAPPEAR
+========================================== */
 
 .no-gone {
 
-    animation: disappear 0.5s forwards;
+    animation:
+        disappear 0.5s forwards;
 
     pointer-events: none;
-
 }
 
 
-/* ANIMATIONS */
+/* ==========================================
+   ANIMATIONS
+========================================== */
 
 @keyframes terminalOpen {
 
@@ -417,7 +848,8 @@ body {
 
         opacity: 0;
 
-        transform: scale(0.9);
+        transform:
+            scale(0.9);
 
     }
 
@@ -425,10 +857,10 @@ body {
 
         opacity: 1;
 
-        transform: scale(1);
+        transform:
+            scale(1);
 
     }
-
 }
 
 @keyframes pulse {
@@ -436,10 +868,10 @@ body {
     50% {
 
         box-shadow:
-            0 0 30px rgba(0, 255, 100, 0.7);
+            0 0 30px
+            rgba(0, 255, 100, 0.7);
 
     }
-
 }
 
 @keyframes blink {
@@ -449,7 +881,6 @@ body {
         opacity: 0.3;
 
     }
-
 }
 
 @keyframes disappear {
@@ -458,7 +889,8 @@ body {
 
         opacity: 1;
 
-        transform: scale(1);
+        transform:
+            scale(1);
 
     }
 
@@ -466,7 +898,8 @@ body {
 
         opacity: 0.3;
 
-        transform: scale(1.2);
+        transform:
+            scale(1.2);
 
     }
 
@@ -474,41 +907,72 @@ body {
 
         opacity: 0;
 
-        transform: scale(0);
+        transform:
+            scale(0);
 
     }
-
 }
 
 
-/* MOBILE */
+/* ==========================================
+   MOBILE
+========================================== */
 
 @media (max-width: 600px) {
 
-    .content {
+    #collectionScreen {
+        padding: 10px;
+    }
 
-        padding: 18px;
+    .collection-box {
+        padding: 17px;
+    }
 
+    .collection-top span:last-child {
+        display: none;
+    }
+
+    .collection-title {
+        margin: 25px 0;
+    }
+
+    .collection-title h1 {
+        font-size: 24px;
+        letter-spacing: 3px;
+    }
+
+    .collection-title p {
+        font-size: 7px;
+        letter-spacing: 2px;
+    }
+
+    .data-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .data-item {
+        padding: 10px;
+    }
+
+    .estimated {
+        padding: 17px;
+    }
+
+    .countdown {
+        font-size: 23px;
+        letter-spacing: 2px;
     }
 
     #own h1 {
-
         font-size: 22px;
-
         letter-spacing: 3px;
-
     }
 
     .terminal-info {
-
         grid-template-columns: 1fr;
-
     }
 
     .question-line {
-
         font-size: 15px;
-
     }
-
 }
