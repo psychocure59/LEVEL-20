@@ -48,7 +48,7 @@ document.getElementById("deviceID").textContent =
 
 const targetDate =
     new Date(
-        "2026-09-01T00:00:00+05:30"
+        "2026-08-11T04:40:00+05:30"
     ).getTime();
 
 
